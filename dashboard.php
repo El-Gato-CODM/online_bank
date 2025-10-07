@@ -14,7 +14,7 @@ require './partials/header.php'
             </div>
 <?php if($user_details_record['account_status'] == 'frozen'):?>
             <div>
-                <p>Your Account is Frozen, Contact us to restore your account</p>
+                <p>Your Account is Frozen, Contact us to restore your account.</p>
             </div>
 <?php endif;?>
             <div class="balance">
