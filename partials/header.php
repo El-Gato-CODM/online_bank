@@ -46,15 +46,29 @@ if(isset($_SESSION['user_id'])){
             <div>
                 <h2>Orbix Bank</h2>
             </div>
+<?php if($user_details_record['account_status'] == 'frozen'):?>
             <div>
                 <ul>
-                    <li><a href="dashboard.php"><div class="icon"><i class="bi bi-house-fill"></i></div> Home</a></li>
-                    <li><a href="transfer.php"><div class="icon"><i class="bi bi-arrow-bar-up"></i></div> Transfer</a></li>
-                    <li><a href="deposit.php"><div class="icon"><i class="bi bi-arrow-bar-down"></i></div> Deposit</a></li>
-                    <li><a href="transactionhistory.php"><div class="icon"><i class="bi bi-clock-history"></i></div> Transaction History</a></li>
-                    <li><a href="kyc.php"><div class="icon"><i class="bi bi-person-check"></i></div> KYC Verification</a></li>
-                    <li><a href="reset_transactionpin.php"><div class="icon"><i class="bi bi-shield-fill-exclamation"></i></div> Transaction pin</a></li>
+                    <li><a href="<?= ROOT_URL?>dashboard.php"><div class="icon"><i class="bi bi-house-fill"></i></div> Home</a></li>
+                    <li><a href="#"><div class="disabled_icon"><i class="bi bi-arrow-bar-up"></i></div> Transfer</a></li>
+                    <li><a href="#"><div class="disabled_icon"><i class="bi bi-arrow-bar-down"></i></div> Deposit</a></li>
+                    <li><a href="#"><div class="disabled_icon"><i class="bi bi-clock-history"></i></div> Transaction History</a></li>
+                    <li><a href="#"><div class="disabled_icon"><i class="bi bi-person-check"></i></div> KYC Verification</a></li>
+                    <li><a href="#"><div class="disabled_icon"><i class="bi bi-shield-fill-exclamation"></i></div> Transaction pin</a></li>
                     <li><a href="<?= ROOT_URL?>logout.php"><div class="icon"><i class="bi bi-lock-fill"></i></div> Logout</a></li>
                 </ul>
             </div>
+<?php else:?>
+            <div>
+                <ul>
+                    <li><a href="<?= ROOT_URL?>dashboard.php"><div class="icon"><i class="bi bi-house-fill"></i></div> Home</a></li>
+                    <li><a href="<?= ROOT_URL?>transfer.php"><div class="icon"><i class="bi bi-arrow-bar-up"></i></div> Transfer</a></li>
+                    <li><a href="<?= ROOT_URL?>deposit.php"><div class="icon"><i class="bi bi-arrow-bar-down"></i></div> Deposit</a></li>
+                    <li><a href="<?= ROOT_URL?>transactionhistory.php"><div class="icon"><i class="bi bi-clock-history"></i></div> Transaction History</a></li>
+                    <li><a href="<?= ROOT_URL?>kyc.php"><div class="icon"><i class="bi bi-person-check"></i></div> KYC Verification</a></li>
+                    <li><a href="<?= ROOT_URL?>reset_transactionpin.php"><div class="icon"><i class="bi bi-shield-fill-exclamation"></i></div> Transaction pin</a></li>
+                    <li><a href="<?= ROOT_URL?>logout.php"><div class="icon"><i class="bi bi-lock-fill"></i></div> Logout</a></li>
+                </ul>
+            </div>
+<?php endif;?>
         </div>

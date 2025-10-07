@@ -12,6 +12,11 @@ require './partials/header.php'
                 <div><h1>Hi, <?= $user_details_record['fullname'] ?></h1></div>
                 <div class="profile_div"><a href="#" class="profile"><i class="bi bi-person-circle"></i></a></div>
             </div>
+<?php if($user_details_record['account_status'] == 'frozen'):?>
+            <div>
+                <p>Your Account is Frozen, Contact us to restore your account</p>
+            </div>
+<?php endif;?>
             <div class="balance">
                 <div>
                     <p>Your Balance</p>
@@ -19,8 +24,13 @@ require './partials/header.php'
                 </div>
                 <div>
                     <p>Quick Actions</p>
-                    <a href="transfer.php" class="buttons">Transfer</a>
-                    <a href="deposit.php" class="buttons">Deposit</a>
+<?php if($user_details_record['account_status'] == 'frozen'):?>
+                    <a href="#" class="disabled_buttons">Transfer</a>
+                    <a href="#" class="disabled_buttons">Deposit</a>
+<?php else:?>
+                    <a href="<?= ROOT_URL?>transfer.php" class="buttons">Transfer</a>
+                    <a href="<?= ROOT_URL?>deposit.php" class="buttons">Deposit</a>
+<?php endif;?>
                 </div>
             </div>
             <div class="table">
