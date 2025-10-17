@@ -100,7 +100,7 @@ $pending_kyc_row_count = mysqli_num_rows($num_of_pending_kyc_query);
                 </table>
     <?php else: ?>
         <div>
-            <p>You dont have any transactions yet</p>
+            <p>You don't have any transactions yet</p>
         </div>
 
     <?php endif; ?>
