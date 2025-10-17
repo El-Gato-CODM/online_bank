@@ -6,6 +6,15 @@ require '../config/database.php';
 $user_transactions_sql = "SELECT * FROM transactions ORDER BY id DESC LIMIT 4 ";
 $user_transactions_query = mysqli_query($conn, $user_transactions_sql);
 
+$num_of_users = "SELECT * FROM users";
+$num_of_users_query = mysqli_query($conn, $num_of_users);
+$user_row_count = mysqli_num_rows($num_of_users_query);
+
+
+$num_of_pending_kyc = "SELECT * FROM users WHERE kyc_status = 'pending'";
+$num_of_pending_kyc_query = mysqli_query($conn, $num_of_pending_kyc);
+$pending_kyc_row_count = mysqli_num_rows($num_of_pending_kyc_query);
+
 
 
 
@@ -46,7 +55,7 @@ $user_transactions_query = mysqli_query($conn, $user_transactions_sql);
             <div class="users">
                 <div class="total_users">
                     <p>Total Users</p>
-                    <h2>1,243</h2>
+                    <h2><?=$user_row_count?></h2>
                 </div>
                 <div class="total_deposits">
                     <p>Total Deposits</p>
@@ -54,7 +63,7 @@ $user_transactions_query = mysqli_query($conn, $user_transactions_sql);
                 </div>
                 <div class="pending_kyc">
                     <p>Pending KYC</p>
-                    <h2>47</h2>
+                    <h2><?=$pending_kyc_row_count?></h2>
                 </div>
             </div>
 

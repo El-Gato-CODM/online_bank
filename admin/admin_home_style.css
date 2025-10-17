@@ -130,6 +130,10 @@ table tr td{
     text-align: right;
 }
 
+.plus{
+    color: rgb(0, 189, 0);
+}
 
-
-
+.minus{
+    color: red;
+}
